@@ -10,7 +10,7 @@ pub use self::sys::*;
 
 use std::borrow::Cow;
 
-#[cfg(unix)]
+#[cfg(all(unix, not(target_os = "redox")))]
 #[path = "unix.rs"]
 mod sys;
 #[cfg(windows)]
